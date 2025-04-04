@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 
 const Form = () => {
     const [formData, setFormData] = useState({
@@ -34,7 +34,6 @@ const Form = () => {
                 setPhoneError("");
             }
         }
-
         setFormData({ ...formData, [id]: value });
     };
 
@@ -73,61 +72,63 @@ const Form = () => {
         document.body.removeChild(link);
     };
 
+    const requiredLabel = (label) => (<>{label} <span className="text-danger">*</span></>);
+
     return (
         <div className="container mt-4">
             <h1 className='text-center'>User Data</h1>
             <form className="border p-4 rounded" onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="firstName" className="form-label">First Name</label>
+                    <label htmlFor="firstName" className="form-label">{requiredLabel("First Name")}</label>
                     <input type="text" className="form-control" id="firstName" placeholder="Enter your first name" value={formData.firstName} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="lastName" className="form-label">Last Name</label>
+                    <label htmlFor="lastName" className="form-label">{requiredLabel("Last Name")}</label>
                     <input type="text" className="form-control" id="lastName" placeholder="Enter your last name" value={formData.lastName} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email</label>
+                    <label htmlFor="email" className="form-label">{requiredLabel("Email")}</label>
                     <input type="email" className="form-control" id="email" placeholder="Enter your email address" value={formData.email} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="phone" className="form-label">Phone Number</label>
+                    <label htmlFor="phone" className="form-label">{requiredLabel("Phone Number")}</label>
                     <input type="tel" className="form-control" id="phone" placeholder="Enter your 10-digit phone number" value={formData.phone} onChange={handleChange} required />
                     <span className="text-danger">{phoneError}</span>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="fatherName" className="form-label">Father Name</label>
-                    <input type="text" className="form-control" id="fatherName" placeholder="Enter your father's name" value={formData.fatherName} onChange={handleChange} required />
+                    <label htmlFor="fatherName" className="form-label">Father Name <span className="text-muted">(optional)</span></label>
+                    <input type="text" className="form-control" id="fatherName" placeholder="Enter your father's name" value={formData.fatherName} onChange={handleChange} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="address" className="form-label">Address</label>
+                    <label htmlFor="address" className="form-label">{requiredLabel("Address")}</label>
                     <textarea className="form-control" id="address" placeholder="Enter your address" value={formData.address} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="state" className="form-label">State</label>
+                    <label htmlFor="state" className="form-label">{requiredLabel("State")}</label>
                     <input type="text" className="form-control" id="state" placeholder="Enter your state" value={formData.state} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="dob" className="form-label">Date of Birth</label>
-                    <input type="date" className="form-control" id="dob" placeholder="Enter your date of birth" value={formData.dob} onChange={handleChange} required />
+                    <label htmlFor="dob" className="form-label">{requiredLabel("Date of Birth")}</label>
+                    <input type="date" className="form-control" id="dob" value={formData.dob} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="age" className="form-label">Age</label>
+                    <label htmlFor="age" className="form-label">{requiredLabel("Age")}</label>
                     <input type="number" className="form-control" id="age" placeholder="Enter your age" value={formData.age} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="gender" className="form-label">Gender</label>
+                    <label htmlFor="gender" className="form-label">{requiredLabel("Gender")}</label>
                     <input type="text" className="form-control" id="gender" placeholder="Enter your gender" value={formData.gender} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="degree" className="form-label">Degree</label>
+                    <label htmlFor="degree" className="form-label">{requiredLabel("Degree")}</label>
                     <input type="text" className="form-control" id="degree" placeholder="Enter your degree name" value={formData.degree} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="degreeCourse" className="form-label">Course</label>
+                    <label htmlFor="degreeCourse" className="form-label">{requiredLabel("Course")}</label>
                     <input type="text" className="form-control" id="degreeCourse" placeholder="Enter your degree course" value={formData.degreeCourse} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="skills" className="form-label">Skills</label>
+                    <label htmlFor="skills" className="form-label">{requiredLabel("Skills")}</label>
                     <input type="text" className="form-control" id="skills" placeholder="Enter your skills (e.g., HTML, CSS, JavaScript)" value={formData.skills} onChange={handleChange} required />
                 </div>
 
